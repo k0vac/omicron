@@ -1,0 +1,9 @@
+D:\Source\Repos\omicron\OmicronMain\bin\Debug\OmicronMain.exe
+D:\Source\Repos\omicron\OmicronMain\bin\Debug\OmicronMain.pdb
+D:\Source\Repos\omicron\OmicronMain\obj\Debug\OmicronMain.csprojAssemblyReference.cache
+D:\Source\Repos\omicron\OmicronMain\obj\Debug\OmicronMain.MainForm.resources
+D:\Source\Repos\omicron\OmicronMain\obj\Debug\OmicronMain.Properties.Resources.resources
+D:\Source\Repos\omicron\OmicronMain\obj\Debug\OmicronMain.csproj.GenerateResource.cache
+D:\Source\Repos\omicron\OmicronMain\obj\Debug\OmicronMain.csproj.CoreCompileInputs.cache
+D:\Source\Repos\omicron\OmicronMain\obj\Debug\OmicronMain.exe
+D:\Source\Repos\omicron\OmicronMain\obj\Debug\OmicronMain.pdb
