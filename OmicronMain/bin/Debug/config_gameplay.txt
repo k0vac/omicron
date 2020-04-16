@@ -1,0 +1,2 @@
+server_name: K0vacs Test Server
+player_list_title: Bleh
