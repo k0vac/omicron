@@ -1,2 +1,2 @@
-server_name: K0vacs Test Server
-player_list_title: Bleh
+server_name: Test Server
+player_list_title: Test Server

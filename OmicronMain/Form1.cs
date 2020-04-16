@@ -71,11 +71,6 @@ namespace OmicronMain
             }
             pisac.Flush();
             pisac.Close();
-
-
-
-
-
             progressBar1.Value = 50;
             label10.Visible = true;
             label10.Text = "File's have been generated.";
