@@ -34,10 +34,7 @@ namespace OmicronMain
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            if (numericUpDown1.Value > 25)
-            {
-                MaxPlayersLabel.Text = "TOO HIGH!";
-            }
+            
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -63,14 +60,32 @@ namespace OmicronMain
             pisac.WriteLine(textBox1.Text);
 
             pisac.Write("player_list_title: ");
-            textBox2.Text != "" ? pisac.WriteLine(textBox2.Text) : pisac.WriteLine("default");
+            pisac.WriteLine(textBox2.Text != "" ? textBox2.Text : "default");
             pisac.WriteLine("player_list_title: default");
 
             pisac.Write("serverinfo_pastebin_id: ");
-            textBox5.Text != "" ? pisac.WriteLine(textBox5.Text) : pisac.WriteLine("7wV681fT");
+            pisac.WriteLine(textBox5.Text != "" ? textBox5.Text : "7wV681fT");
 
             pisac.Write("server_ip: ");
-            textBox3.Text != "" ? pisac.WriteLine(textBox3.Text) : pisac.WriteLine("auto");
+            pisac.WriteLine(textBox3.Text != "" ? textBox3.Text : "auto");
+
+            pisac.Write("max_players: ");
+            pisac.WriteLine(numericUpDown1.Value);
+
+            pisac.Write("use_reserved_slots: ");
+            pisac.WriteLine(checkBox3.Checked ? "true" : "false");
+
+            pisac.WriteLine("lobby_waiting_time: default");
+
+            pisac.Write("ipv4_bind_ip: ");
+            pisac.WriteLine(textBox6.Text != "" ? textBox6.Text : "0.0.0.0");
+
+            pisac.WriteLine("ipv6_bind_ip: ::");
+
+            pisac.Write("contact_email: ");
+            pisac.WriteLine(textBox7.Text != "" ? textBox7.Text : "default");
+
+
 
             pisac.Flush();
             pisac.Close();
@@ -83,5 +98,23 @@ namespace OmicronMain
         {
 
         }
+
+        private void numericUpDown1_ValueChanged_1(object sender, EventArgs e)
+        {
+            if (numericUpDown1.Value > 25)
+            {
+                label18.Visible = true;
+            }
+            else
+            {
+                label18.Visible = false;
+            }
+        }
+
+        private void trackBar2_Scroll(object sender, EventArgs e) => label27.Text = (trackBar2.Value / 10.00) + "x";
+
+        private void trackBar1_Scroll(object sender, EventArgs e) => label28.Text = (trackBar1.Value / 10.00) + "x";
+
+        private void trackBar3_Scroll(object sender, EventArgs e) => label29.Text = (trackBar3.Value + "");
     }
 }

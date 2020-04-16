@@ -1,2 +1,11 @@
-server_name: Test Server
-player_list_title: Test Server
+server_name: 
+player_list_title: default
+player_list_title: default
+serverinfo_pastebin_id: 7wV681fT
+server_ip: auto
+max_players: 100
+use_reserved_slots: false
+lobby_waiting_time: default
+ipv4_bind_ip: 0.0.0.0
+ipv6_bind_ip: ::
+contact_email: default
