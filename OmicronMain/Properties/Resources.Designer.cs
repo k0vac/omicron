@@ -63,6 +63,16 @@ namespace OmicronMain.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap omicronsplashscreen {
+            get {
+                object obj = ResourceManager.GetObject("omicronsplashscreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap omicrontype {
             get {
                 object obj = ResourceManager.GetObject("omicrontype", resourceCulture);

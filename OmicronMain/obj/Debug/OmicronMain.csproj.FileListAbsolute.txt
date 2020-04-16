@@ -8,3 +8,4 @@ D:\Source\Repos\omicron\OmicronMain\obj\Debug\OmicronMain.csproj.CoreCompileInpu
 D:\Source\Repos\omicron\OmicronMain\obj\Debug\OmicronMain.exe
 D:\Source\Repos\omicron\OmicronMain\obj\Debug\OmicronMain.pdb
 D:\Source\Repos\omicron\OmicronMain\bin\Debug\OmicronMain.exe.config
+D:\Source\Repos\omicron\OmicronMain\obj\Debug\OmicronMain.Form2.resources

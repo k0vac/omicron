@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace OmicronMain
 {
@@ -159,6 +160,17 @@ namespace OmicronMain
             pisac.WriteLine("914_mode: default");
             pisac.WriteLine("sinkhole_slow_amount: 30"); //Planned for implementation
             pisac.WriteLine("sinkhole_spawn_chance: 0"); //Planned for implementation
+
+            pisac.Write("pd_exit_count: ");
+            pisac.WriteLine(trackBar3.Value);
+            pisac.WriteLine("pd_random_exit_rids:");
+            pisac.WriteLine("pd_random_exit_rids_after_decontamination:");
+            pisac.WriteLine("pd_refresh_exit: false");
+            progressBar1.Value = 75;
+
+            pisac.WriteLine("mtf_can_cuff_researchers: true"); //Planned for implementation
+            pisac.WriteLine("ci_can_cuff_class_d: true"); //Planned for implementation
+            pisac.WriteLine("cuffed_escapee_change_team: true"); //Planned for implementation
 
 
 
