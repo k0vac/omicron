@@ -61,14 +61,17 @@ namespace OmicronMain
             StreamWriter pisac = new StreamWriter("config_gameplay.txt");
             pisac.Write("server_name: ");
             pisac.WriteLine(textBox1.Text);
+
             pisac.Write("player_list_title: ");
-            if (textBox2.Text != "")
-            {
-                pisac.WriteLine(textBox2.Text);
-            } else
-            {
-                pisac.WriteLine("default");
-            }
+            textBox2.Text != "" ? pisac.WriteLine(textBox2.Text) : pisac.WriteLine("default");
+            pisac.WriteLine("player_list_title: default");
+
+            pisac.Write("serverinfo_pastebin_id: ");
+            textBox5.Text != "" ? pisac.WriteLine(textBox5.Text) : pisac.WriteLine("7wV681fT");
+
+            pisac.Write("server_ip: ");
+            textBox3.Text != "" ? pisac.WriteLine(textBox3.Text) : pisac.WriteLine("auto");
+
             pisac.Flush();
             pisac.Close();
             progressBar1.Value = 50;
