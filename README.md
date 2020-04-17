@@ -9,7 +9,7 @@
 <h4>Requires <a href="https://www.microsoft.com/en-us/download/details.aspx?id=17851">.NET Framework 4</a> to work properly.</h4>
 <b>Windows Only! (Configs still work on linux)</b>
 
-<b>Licensed under the Mozzila Public License v2.</b>
+<b>Licensed under the Mozilla Public License v2.</b>
 
 <img src="https://github.com/k0vac/omicron/blob/master/OmicronSS1.png"></img>
 
