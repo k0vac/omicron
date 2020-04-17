@@ -180,7 +180,7 @@ namespace OmicronMain
             pisac.WriteLine("facility_guard_defaultammo: [0, 35, 0]");
 
             pisac.WriteLine("custom_whitelist: false"); //Planned "Others" Tab
-            pisac.WriteLine("server_access_restrictions: false");
+            pisac.WriteLine("server_access_restrictions: false"); //Planned "Others" Tab
 
             string[] portsList = textBox4.Text.Split(',');
             progressBar1.Value = 75;
@@ -195,19 +195,19 @@ namespace OmicronMain
             pisac.WriteLine("gban_ban_ip: default");
             pisac.WriteLine("noclip_protection_output: false");
             pisac.WriteLine("speedhack_protection_output: false");
-            pisac.WriteLine("broadcast_kicks: false");
-            pisac.WriteLine("broadcast_kick_text: %nick% has been kicked.");
-            pisac.WriteLine("broadcast_kick_duration: 5");
-            pisac.WriteLine("broadcast_bans: true");
-            pisac.WriteLine("broadcast_ban_text: %nick% has been banned.");
-            pisac.WriteLine("broadcast_ban_duration: 5");
+            pisac.WriteLine("broadcast_kicks: false"); //Planned "Others" Tab
+            pisac.WriteLine("broadcast_kick_text: %nick% has been kicked."); //Planned "Others" Tab
+            pisac.WriteLine("broadcast_kick_duration: 5"); //Planned "Others" Tab
+            pisac.WriteLine("broadcast_bans: true"); //Planned "Others" Tab
+            pisac.WriteLine("broadcast_ban_text: %nick% has been banned."); //Planned "Others" Tab
+            pisac.WriteLine("broadcast_ban_duration: 5"); //Planned "Others" Tab
 
-            pisac.WriteLine("geoblocking_whitelist:");
+            pisac.WriteLine("geoblocking_whitelist:"); //Planned "Others" Tab
             pisac.WriteLine(" - AA");
             pisac.WriteLine(" - AB");
             pisac.WriteLine(" - AC");
 
-            pisac.WriteLine("geoblocking_blacklist:");
+            pisac.WriteLine("geoblocking_blacklist:"); //Planned "Others" Tab
             pisac.WriteLine(" - AA");
             pisac.WriteLine(" - AB");
             pisac.WriteLine(" - AC");
