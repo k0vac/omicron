@@ -29,7 +29,7 @@ namespace OmicronMain
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            System.Diagnostics.Process.Start("https://github.com/k0vac/omicron");
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -66,7 +66,7 @@ namespace OmicronMain
 
             pisac.Write("player_list_title: ");
             pisac.WriteLine(textBox2.Text != "" ? textBox2.Text : "default");
-            pisac.WriteLine("player_list_title: default");
+            pisac.WriteLine("player_list_rate: default");
 
             pisac.Write("serverinfo_pastebin_id: ");
             pisac.WriteLine(textBox5.Text != "" ? textBox5.Text : "7wV681fT");
@@ -135,7 +135,7 @@ namespace OmicronMain
             pisac.WriteLine("pd_random_exit_rids:");
             pisac.WriteLine("pd_random_exit_rids_after_decontamination:");
             pisac.WriteLine("pd_refresh_exit: false");
-            progressBar1.Value = 75;
+            progressBar1.Value = 60;
 
             pisac.WriteLine("mtf_can_cuff_researchers: true"); //Planned for implementation
             pisac.WriteLine("ci_can_cuff_class_d: true"); //Planned for implementation
@@ -179,10 +179,44 @@ namespace OmicronMain
             pisac.WriteLine("tutorial_defaultammo: [0, 0, 0]");
             pisac.WriteLine("facility_guard_defaultammo: [0, 35, 0]");
 
+            pisac.WriteLine("custom_whitelist: false"); //Planned "Others" Tab
+            pisac.WriteLine("server_access_restrictions: false");
+
+            string[] portsList = textBox4.Text.Split(',');
+            progressBar1.Value = 75;
+
+            pisac.WriteLine("port_queue:");
+
+            for(int i = 0; i < portsList.Length; i++)
+            {
+                pisac.WriteLine(" - " + portsList[i]);
+            }
+
+            pisac.WriteLine("gban_ban_ip: default");
+            pisac.WriteLine("noclip_protection_output: false");
+            pisac.WriteLine("speedhack_protection_output: false");
+            pisac.WriteLine("broadcast_kicks: false");
+            pisac.WriteLine("broadcast_kick_text: %nick% has been kicked.");
+            pisac.WriteLine("broadcast_kick_duration: 5");
+            pisac.WriteLine("broadcast_bans: true");
+            pisac.WriteLine("broadcast_ban_text: %nick% has been banned.");
+            pisac.WriteLine("broadcast_ban_duration: 5");
+
+            pisac.WriteLine("geoblocking_whitelist:");
+            pisac.WriteLine(" - AA");
+            pisac.WriteLine(" - AB");
+            pisac.WriteLine(" - AC");
+
+            pisac.WriteLine("geoblocking_blacklist:");
+            pisac.WriteLine(" - AA");
+            pisac.WriteLine(" - AB");
+            pisac.WriteLine(" - AC");
+
 
             pisac.Flush();
             pisac.Close();
-            
+
+            progressBar1.Value = 100;
             label10.Visible = true;
             label10.Text = "Files have been generated.";
         }
@@ -317,10 +351,36 @@ namespace OmicronMain
             {
                 numericUpDown14.Enabled = false;
                 textBox8.Enabled = false;
+                checkBox14.Enabled = false;
             } else
             {
                 numericUpDown14.Enabled = true;
                 textBox8.Enabled = true;
+                checkBox14.Enabled = true;
+            }
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://paypal.me/Veljko61");
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/takail/omicron-pi");
+        }
+
+        private void checkBox11_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!checkBox11.Checked)
+            {
+                numericUpDown13.Enabled = false;
+                numericUpDown13.Value = 0;
+            }
+            else
+            {
+                numericUpDown13.Enabled = true;
+                numericUpDown13.Value = 30;
             }
         }
     }

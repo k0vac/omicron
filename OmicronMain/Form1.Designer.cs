@@ -129,8 +129,6 @@
             this.label41 = new System.Windows.Forms.Label();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.label9 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
@@ -184,6 +182,7 @@
             // 
             this.pictureBox1.BackgroundImage = global::OmicronMain.Properties.Resources.omicrontype;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::OmicronMain.Properties.Resources.omicrontype;
             this.pictureBox1.Location = new System.Drawing.Point(4, 263);
             this.pictureBox1.Name = "pictureBox1";
@@ -214,8 +213,6 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Font = new System.Drawing.Font("Noto Sans", 8.249999F, System.Drawing.FontStyle.Bold);
             this.tabControl1.ImageList = this.imageList1;
             this.tabControl1.Location = new System.Drawing.Point(13, 12);
@@ -464,7 +461,7 @@
             // checkBox8
             // 
             this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(167, 162);
+            this.checkBox8.Location = new System.Drawing.Point(167, 163);
             this.checkBox8.Name = "checkBox8";
             this.checkBox8.Size = new System.Drawing.Size(15, 14);
             this.checkBox8.TabIndex = 26;
@@ -584,7 +581,7 @@
             this.textBox4.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.textBox4.Size = new System.Drawing.Size(232, 22);
             this.textBox4.TabIndex = 20;
-            this.textBox4.Text = "7777,7778,7779,7780, 7781,7782,7783,7784\r\n";
+            this.textBox4.Text = "7777,7778,7779,7780, 7781,7782,7783,7784";
             // 
             // label4
             // 
@@ -1267,11 +1264,6 @@
             0,
             0,
             0});
-            this.numericUpDown13.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.numericUpDown13.Name = "numericUpDown13";
             this.numericUpDown13.Size = new System.Drawing.Size(52, 18);
             this.numericUpDown13.TabIndex = 28;
@@ -1387,6 +1379,7 @@
             this.checkBox11.Size = new System.Drawing.Size(15, 14);
             this.checkBox11.TabIndex = 26;
             this.checkBox11.UseVisualStyleBackColor = true;
+            this.checkBox11.CheckedChanged += new System.EventHandler(this.checkBox11_CheckedChanged);
             // 
             // label38
             // 
@@ -1482,25 +1475,6 @@
             this.label19.TabIndex = 25;
             this.label19.Text = "AFK Kick";
             // 
-            // tabPage5
-            // 
-            this.tabPage5.ImageIndex = 4;
-            this.tabPage5.Location = new System.Drawing.Point(4, 27);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(670, 210);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Performance";
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 27);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(670, 210);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "Other";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -1546,6 +1520,7 @@
             // 
             // linkLabel1
             // 
+            this.linkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkLabel1.Font = new System.Drawing.Font("Noto Sans", 6.75F, System.Drawing.FontStyle.Bold);
             this.linkLabel1.Location = new System.Drawing.Point(206, 270);
             this.linkLabel1.Name = "linkLabel1";
@@ -1553,10 +1528,12 @@
             this.linkLabel1.TabIndex = 11;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Get Omicron Pi";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkLabel2.Font = new System.Drawing.Font("Noto Sans", 8.249999F, System.Drawing.FontStyle.Bold);
             this.linkLabel2.Location = new System.Drawing.Point(153, 269);
             this.linkLabel2.Name = "linkLabel2";
@@ -1564,6 +1541,7 @@
             this.linkLabel2.TabIndex = 12;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Donate";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // timer1
             // 
@@ -1577,7 +1555,7 @@
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(100, 13);
             this.label49.TabIndex = 13;
-            this.label49.Text = "0.1b (Megapatch 2)";
+            this.label49.Text = "0.1c (Megapatch 2)";
             this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
@@ -1659,7 +1637,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label10;
@@ -1719,7 +1696,6 @@
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.CheckBox checkBox9;
         private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.CheckBox checkBox10;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Timer timer1;

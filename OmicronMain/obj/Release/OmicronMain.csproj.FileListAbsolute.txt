@@ -1,4 +1,3 @@
-D:\Source\Repos\omicron\OmicronMain\obj\Release\OmicronMain.csprojAssemblyReference.cache
 D:\Source\Repos\omicron\OmicronMain\obj\Release\OmicronMain.MainForm.resources
 D:\Source\Repos\omicron\OmicronMain\obj\Release\OmicronMain.Form2.resources
 D:\Source\Repos\omicron\OmicronMain\obj\Release\OmicronMain.Properties.Resources.resources
