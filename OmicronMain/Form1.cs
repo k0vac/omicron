@@ -13,22 +13,15 @@ namespace OmicronMain
 {
     public partial class MainForm : Form
     {
+
         public MainForm()
         {
             InitializeComponent();
-            if (Properties.Settings.Default.HasSeenWelcome == false) {
-                MessageBox.Show("This is intended for modifying the config_remoteadmin.txt file for SCP:SL. For config_remoteadmin.txt please check out Omicron Pi.\n\nhttps://github.com/Takail/Omicron-Pi");
-                Properties.Settings.Default.HasSeenWelcome = true;
-                Properties.Settings.Default.Save();
-            }
+            
+            
         }
 
-        private string YAMLizeList(string yInput)
-        {
-            yInput = " - " + yInput;
-            return yInput;
-        }
-
+        string modeFor914Var = "DroppedAndPlayerTeleport";
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -84,15 +77,14 @@ namespace OmicronMain
             pisac.Write("max_players: ");
             pisac.WriteLine(numericUpDown1.Value);
 
-            pisac.Write("use_reserved_slots: ");
-            pisac.WriteLine(checkBox3.Checked ? "true" : "false");
+            pisac.WriteLine("use_reserved_slots: {0}", checkBox3.Checked);
 
             pisac.WriteLine("lobby_waiting_time: default");
 
             pisac.Write("ipv4_bind_ip: ");
             pisac.WriteLine(textBox6.Text != "" ? textBox6.Text : "0.0.0.0");
 
-            pisac.WriteLine("ipv6_bind_ip: ::");
+            pisac.WriteLine("ipv6_bind_ip: ::"); //Planned for Implementation
 
             pisac.Write("contact_email: ");
             pisac.WriteLine(textBox7.Text != "" ? textBox7.Text : "default");
@@ -117,52 +109,29 @@ namespace OmicronMain
 
             pisac.WriteLine("team_respawn_queue: 40143140314414041340");
             progressBar1.Value = 50;
-
             pisac.WriteLine("server_forced_class: -1");
             pisac.WriteLine("map_seed: -1");
-
-            pisac.Write("afk_time: ");
-            pisac.WriteLine(numericUpDown8.Value);
-            pisac.Write("intercom_cooldown: ");
-            pisac.WriteLine(numericUpDown9.Value);
-            pisac.Write("intercom_max_speech_time: ");
-            pisac.WriteLine(numericUpDown10.Value);
-
+            pisac.WriteLine("afk_time: {0}", numericUpDown8.Value);
+            pisac.WriteLine("intercom_cooldown: {0}", numericUpDown9.Value);
+            pisac.WriteLine("intercom_max_speech_time: {0}", numericUpDown10.Value);
             pisac.WriteLine("auto_round_restart_time: 10");
-            
-
-            pisac.Write("friendly_fire: ");
-            pisac.WriteLine(checkBox5.Checked);
-
-            pisac.Write("warhead_tminus_start_duration: ");
-            pisac.WriteLine(numericUpDown10.Value);
-            pisac.Write("human_grenade_multiplier: ");
-            pisac.WriteLine(trackBar1.Value / 10.00);
-            pisac.Write("scp_grenade_multiplier: ");
-            pisac.WriteLine(trackBar2.Value / 10.00);
-
-
+            pisac.WriteLine("friendly_fire: {0}", checkBox5.Checked);
+            pisac.WriteLine("warhead_tminus_start_duration: {0}", numericUpDown10.Value);
+            pisac.WriteLine("human_grenade_multiplier: {0}", trackBar1.Value / 10.00);
+            pisac.WriteLine("scp_grenade_multiplier: {0}", trackBar2.Value / 10.00);
             pisac.WriteLine("lock_gates_on_countdown: true");
             pisac.WriteLine("isolate_zones_on_countdown: false");
             pisac.WriteLine("open_doors_on_countdown: true");
-
-            pisac.Write("keep_items_after_escaping: ");
-            pisac.WriteLine(checkBox10.Checked);
-
+            pisac.WriteLine("keep_items_after_escaping: {0}", checkBox10.Checked);
             pisac.WriteLine("allow_playing_as_tutorial: true"); //Planned for implementation
-
-            pisac.Write("disable_decontamination: ");
-            pisac.WriteLine(checkBox9.Checked);
-
+            pisac.WriteLine("disable_decontamination: {0}", checkBox9.Checked);
             pisac.WriteLine("096_destroy_locked_doors: true"); //Planned for implementation
             pisac.WriteLine("no_holidays: false");
             pisac.WriteLine("allow_disarmed_interaction: false");
-            pisac.WriteLine("914_mode: default");
+            pisac.WriteLine("914_mode: {0}", modeFor914Var); //DO NOW
             pisac.WriteLine("sinkhole_slow_amount: 30"); //Planned for implementation
             pisac.WriteLine("sinkhole_spawn_chance: 0"); //Planned for implementation
-
-            pisac.Write("pd_exit_count: ");
-            pisac.WriteLine(trackBar3.Value);
+            pisac.WriteLine("pd_exit_count: ", trackBar3.Value);
             pisac.WriteLine("pd_random_exit_rids:");
             pisac.WriteLine("pd_random_exit_rids_after_decontamination:");
             pisac.WriteLine("pd_refresh_exit: false");
@@ -172,6 +141,43 @@ namespace OmicronMain
             pisac.WriteLine("ci_can_cuff_class_d: true"); //Planned for implementation
             pisac.WriteLine("cuffed_escapee_change_team: true"); //Planned for implementation
 
+            pisac.WriteLine("spawn_protect_disable: {0}", !checkBox11.Checked);
+            pisac.WriteLine("spawn_protect_time: {0}", numericUpDown13.Value);
+            pisac.WriteLine("spawn_protect_team: [1, 2]");
+            pisac.WriteLine("spawn_protect_allow_dmg: {0}", checkBox12.Checked);
+
+            pisac.WriteLine("grenade_chain_limit: 10");
+            pisac.WriteLine("grenade_chain_length_limit: 4");
+
+            pisac.WriteLine("online_mode: {0}", checkBox1.Checked);
+            pisac.WriteLine("ip_banning: true");
+            pisac.WriteLine("enable_whitelist: {0}", checkBox2.Checked);
+            pisac.WriteLine("hide_from_public_list: {0}", checkBox8.Checked);
+            pisac.WriteLine("forward_ports: {0}", checkBox6.Checked);
+            pisac.WriteLine("enable_query: {0}", checkBox13.Checked);
+            pisac.WriteLine("query_port_shift: {0}", numericUpDown14.Value);
+            pisac.WriteLine("query_use_IPv6: {0}", checkBox14.Checked);
+            pisac.WriteLine(textBox8.Text != "" ? "administator_query_password : " + textBox8.Text : "administator_query_password : none");
+            pisac.WriteLine("enable_sync_command_binding: false");
+            pisac.WriteLine("anti_player_wallhack: default"); //DEPRECATED
+            pisac.WriteLine("ratelimit_kick: {0}", checkBox15.Checked);
+            pisac.WriteLine("enforce_same_ip: {0}", checkBox16.Checked);
+            pisac.WriteLine("no_enforcement_for_local_ip_addresses: true");
+            pisac.WriteLine("enforce_same_asn: {0}", checkBox16.Checked);
+            pisac.WriteLine("enable_ip_ratelimit: {0}", checkBox7.Checked);
+            pisac.WriteLine("enable_userid_ratelimit: {0}", checkBox7.Checked);
+            pisac.WriteLine("ip_ratelimit_window: {0}", numericUpDown12.Value);
+            pisac.WriteLine("userid_ratelimit_window: {0}", numericUpDown12.Value);
+
+            pisac.WriteLine("class_d_personnel_defaultammo: [0, 0, 0]");
+            pisac.WriteLine("nine_tailed_fox_scientist_defaultammo: [120, 20, 20]");
+            pisac.WriteLine("scientist_defaultammo: [0, 0, 0]");
+            pisac.WriteLine("chaos_insurgency_defaultammo: [0, 100, 0]");
+            pisac.WriteLine("nine_tailed_fox_lieutenant_defaultammo: [120, 0, 100]");
+            pisac.WriteLine("nine_tailed_fox_commander_defaultammo: [120, 0, 100]");
+            pisac.WriteLine("nine_tailed_fox_cadet_defaultammo: [40, 0, 100]");
+            pisac.WriteLine("tutorial_defaultammo: [0, 0, 0]");
+            pisac.WriteLine("facility_guard_defaultammo: [0, 35, 0]");
 
 
             pisac.Flush();
@@ -203,5 +209,119 @@ namespace OmicronMain
         private void trackBar1_Scroll(object sender, EventArgs e) => label28.Text = (trackBar1.Value / 10.00) + "x";
 
         private void trackBar3_Scroll(object sender, EventArgs e) => label29.Text = (trackBar3.Value + "");
+
+        Form2 frm2 = new Form2();
+        int ticks = 0;
+        public void MainForm_Load(object sender, EventArgs e)
+        {
+            comboBox1.SelectedItem = "Dropped + Player Teleport";
+            timer1.Start();
+            frm2.Show();
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (ticks == 0)
+            {
+                frm2.Close();
+                ticks++;
+            } else
+            {
+                timer1.Stop();
+                if (Properties.Settings.Default.HasSeenWelcome == false)
+                {
+                    MessageBox.Show("This is intended for modifying the config_remoteadmin.txt file for SCP:SL. For config_remoteadmin.txt please check out Omicron Pi.\n\nhttps://github.com/Takail/Omicron-Pi");
+                    Properties.Settings.Default.HasSeenWelcome = true;
+                    Properties.Settings.Default.Save();
+                }
+                
+            }
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!checkBox4.Checked)
+            {
+                numericUpDown8.Enabled = false;
+                numericUpDown8.Value = 0;
+            } else
+            {
+                numericUpDown8.Enabled = true;
+                numericUpDown8.Value = 90;
+            }
+        }
+
+        private void checkBox15_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!checkBox15.Checked)
+            {
+                label47.Visible = true;
+            }
+            else
+            {
+                label47.Visible = false;
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!checkBox1.Checked)
+            {
+                label45.Visible = true;
+            }
+            else
+            {
+                label45.Visible = false;
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            switch(comboBox1.SelectedItem)
+            {
+                case "Dropped(No Player Teleport)":
+                    modeFor914Var = "Dropped";
+                    break;
+                case "Dropped + Held":
+                    modeFor914Var = "DroppedAndHeld";
+                    break;
+                case "Dropped + Inventory":
+                    modeFor914Var = "DroppedAndInventory";
+                    break;
+                case "Dropped + Player Teleport":
+                    modeFor914Var = "DroppedAndPlayerTeleport";
+                    break;
+                case "Held":
+                    modeFor914Var = "Held";
+                    break;
+                case "Inventory":
+                    modeFor914Var = "Inventory";
+                    break;
+            }
+        }
+
+        private void tabPage4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox13_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!checkBox13.Checked)
+            {
+                numericUpDown14.Enabled = false;
+                textBox8.Enabled = false;
+            } else
+            {
+                numericUpDown14.Enabled = true;
+                textBox8.Enabled = true;
+            }
+        }
     }
 }

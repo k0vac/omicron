@@ -7,7 +7,7 @@
     <ProjectGuid>{B30E4AAB-0D5C-4ED4-B62A-573E2D0DF3C0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>OmicronMain</RootNamespace>
-    <AssemblyName>OmicronMain</AssemblyName>
+    <AssemblyName>Omicron</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
